@@ -11,14 +11,19 @@ float producto (float a , float b){
 float division (float a , float b){
     return a / b;
 }
+void menu_de_inicio (){
+     printf("\tCalculadora con Funciones\n");
+
+    printf("\nIngrese la operacion deseada\n");
+    printf("\t+,-,/,*\n");
+}
 int main (){
+    int opcion;
     char operacion;
     float num1, num2, resultado;
-    
-    printf("\tCalculadora con Funciones\n");
+    do {
+    menu_de_inicio ();//Llamo a la funcion void 
 
-    printf("\nIngrese la operacion deseada");
-    printf("\t+,-,/,*\n");
     scanf(" %c", &operacion);
 
     printf("\nIngrese el primer numero\n");
@@ -52,5 +57,15 @@ int main (){
                 printf("El programa no reconoce esos valores");
                 break;
     }
+    printf("\nDesea volver a usar la calculadora: Marque 1 para si y 0 para No\n");
+    scanf("%d", &opcion);
+        if (opcion == 0){
+            printf("\nCerrando calculadora, muchas gracias");
+        } else if (opcion != 0 && opcion != 1){
+            printf ("\n Valores no reconocidos");
+        }
+        
+    } while (opcion == 1);
+
     return 0;
 }
