@@ -1,45 +1,47 @@
 #include <stdio.h> 
-float promedio (float a , float b ){//Funcion para sacar el promedio
+// Calculates and returns the average
+float average(float a , float b) {
     return a / b;
 }
-float maximo ( float a[] , int tamanio){//Funcion para sacar el numero maximo del array
-    float mayor = a[0];
-    for (int i = 1 ; i < tamanio ; i++){
-        if (a[i] >mayor ){
-            mayor = a[i];
+// Returns the maximum value of the array
+float max(float a[] , int size){
+    float current_max = a[0];
+    for(int i = 1 ; i < size ; i++){
+        if(a[i] > current_max) {
+            current_max = a[i];
         }  
     }  
-    return mayor;
+    return current_max;
 }
-float minimo ( float a[] , int tamanio){//Funcion para sacar el numero minimo del array
-    float menor = a[0];
-    for (int i = 1 ; i < tamanio ; i++){
-        if (a[i] < menor ){
-            menor = a[i];
+// Returns the minimum value of the array
+float min(float a[] , int size) {
+    float current_min = a[0];
+    for(int i = 1 ; i < size ; i++){
+        if(a[i] < current_min) {
+            current_min = a[i];
         }  
     }  
-    return menor;
+    return current_min;
 }
-int main (){//Comienzo del codigo principal
-    float resultado;
-    float suma = 0;
-    float enteros [5];
-    for (int i = 0 ; i < 5 ; i++){
-        printf("\nIngrese un numero por favor\n");
-        scanf("%f", &enteros[i]);
-        suma += enteros[i];
+int main() {
+    float result;
+    float addition = 0;
+    float num[5];
+    for(int i = 0 ; i < 5 ; i++) {
+        printf("\nPlease enter a number\n");
+        scanf("%f", &num[i]);
+        addition += num[i];
     }
     for (int i = 0 ; i < 5 ; i++){
-        printf("%f ", enteros[i]);
+        printf("%f ", num[i]);
 
     }
-    //Calculo y muestro los resultados
-    resultado = minimo (enteros, 5);
-    printf("\nEl menor es: %.2f", resultado);
-    resultado = maximo (enteros, 5);
-    printf("\nEl mayor es: %.2f", resultado);
-    resultado = promedio (suma , 5);
-    printf("\nSu promedio es: %.2f", resultado);
+    result = min (num, 5);
+    printf("\nThe minimum is: %.2f", result);
+    result = max (num, 5);
+    printf("\nThe maximum is: %.2f", result);
+    result = average (addition , 5);
+    printf("\nThe average is: %.2f", result);
 
     return 0;
 }
